@@ -7,6 +7,15 @@ enum TipoReparacion: string
     case DIAGNOSTICO = 'Diagnóstico';
     case SOFTWARE = 'Software';
     case HARDWARE = 'Hardware';
+
+    public function descripcion(): string
+    {
+        return match ($this) {
+            self::DIAGNOSTICO => 'Diagnóstico general del dispositivo',
+            self::SOFTWARE => 'Reparación y configuración de software',
+            self::HARDWARE => 'Reparación o sustitución de componentes',
+        };
+    }
 }
 
 final readonly class OrdenTrabajo
